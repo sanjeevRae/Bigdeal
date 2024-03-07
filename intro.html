@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #container {
+    position: relative;
+  }
+
+  #welcome {
+    font-size: 50pt;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-family: Copperplate, Fantasy; /* Set font family to Verdana */
+    text-transform: uppercase; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: flyInText 2s ease 0.3s forwards; /* Apply fly in text animation */
+  }
+
+  #logo {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1); /* Start position scaled down */
+    opacity: 0;
+    animation: flyInLogo 2s ease 2.3s forwards; /* Apply fly in logo animation */
+  }
+
+  #loading-bar {
+    position: absolute;
+    bottom: 40px; /* Adjusted position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Added box shadow for effect */
+  }
+
+  #loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #8A2BE2; /* Initial color (blueviolet) */
+    animation: fillLoadingBar 7s ease forwards, glowEffect 1s ease infinite alternate; /* Animation to fill the loading bar and glow effect */
+  }
+
+  @keyframes flyInText {
+    from {
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyInLogo {
+    from {
+      transform: translate(-50%, 100%) scale(0.1);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fillLoadingBar {
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes glowEffect {
+    from {
+      box-shadow: 0 0 10px #8A2BE2, 0 0 20px #8A2BE2, 0 0 30px #8A2BE2, 0 0 40px #8A2BE2, 0 0 50px #8A2BE2, 0 0 60px #8A2BE2, 0 0 70px #8A2BE2;
+    }
+    to {
+      box-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #00FFFF, 0 0 60px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="container">
+    <div id="welcome">Welcome to</div>
+    <img id="logo" src="A:\tt\newlogo.png" alt="Logo">
+  </div>
+  
+  <!-- Loading Bar -->
+  <div id="loading-bar">
+    <div id="loading-progress"></div>
+  </div>
+
+<script>
+  // Function to remove the text after a delay
+  function removeText() {
+    var welcomeText = document.getElementById('welcome');
+
+    // Remove welcome text after 2.3 seconds
+    setTimeout(function() {
+      welcomeText.style.display = 'none';
+    }, 2300);
+  }
+
+  // Function to redirect to index.html after 7 seconds
+  function redirectToIndex() {
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 7000); // 7 seconds delay
+  }
+
+  // Function to update loading bar color based on progress
+  function updateLoadingColor() {
+    var loadingProgress = document.getElementById('loading-progress');
+    var progress = 100 * (parseInt(loadingProgress.style.width, 10) / parseInt(window.getComputedStyle(loadingProgress.parentNode).width, 10));
+
+    // Change color based on progress
+    if (progress < 50) {
+      loadingProgress.style.backgroundColor = '#8A2BE2'; // Blueviolet
+    } else {
+      loadingProgress.style.backgroundColor = '#00FFFF'; // Cyan
+    }
+  }
+
+  // Call functions when the page loads
+  window.onload = function() {
+    removeText();
+    redirectToIndex();
+
+    // Call updateLoadingColor function every 100 milliseconds to update color dynamically
+    setInterval(updateLoadingColor, 100);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e9c9ff;
+            background: linear-gradient(to right, #e2e2e2, #dcbcfc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        .go-back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #726aeb; 
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000; 
+
+        }
+
+        .go-back-link:hover {
+            background-color: #c480f8; 
+        }
+
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; 
+            max-width: 70%; 
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            text-align: center;
+        
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .login-container label{
+            margin-bottom: 10px;
+            font-weight: 500; 
+            text-align: left;
+        }
+
+        .login-container input[type="text"]
+        {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%; 
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .login-container input[type="password"] {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%; 
+            margin-bottom: 50px; 
+            box-sizing: border-box;
+        }
+
+        .login-container input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #726aeb;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #c480f8;
+        }
+
+       
+        .logo {
+            margin-bottom: 10px; 
+            max-width: 150px; 
+            height: auto; 
+        }
+    </style>
+</head>
+
+<body>
+    <a href="./login.html" class="go-back-link">Go Back</a>
+    <div class="login-container">
+        <img src="img/add/newwwlogo.png" alt="Your Logo" class="logo"> 
+        <h2>Admin Login</h2>
+        <form action="#" method="POST">
+            <input type="text" id="username" name="username" placeholder="Username or Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+
+</html>

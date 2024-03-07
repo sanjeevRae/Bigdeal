@@ -1,0 +1,8 @@
+ <div class="col-lg-0 col-md-0">
+                            <nav class="header__menu mobile-menu">
+                            <div class="cart">
+                            
+                            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        </div> 
+                            </nav>    
+                </div>

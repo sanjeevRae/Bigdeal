@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #container {
+    position: relative;
+  }
+
+  #welcome {
+    font-size: 50pt;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-family: Copperplate, Fantasy; /* Set font family to Verdana */
+    text-transform: uppercase; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: flyInText 2s ease 0.3s forwards; /* Apply fly in text animation */
+  }
+
+  #logo {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1); /* Start position scaled down */
+    opacity: 0;
+    animation: flyInLogo 2s ease 2.3s forwards; /* Apply fly in logo animation */
+  }
+
+  @keyframes flyInText {
+    from {
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyInLogo {
+    from {
+      transform: translate(-50%, 100%) scale(0.1);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="container">
+    <div id="welcome">Welcome to</div>
+    <img id="logo" src="A:\tt\newlogo.png" alt="Logo">
+  </div>
+  
+<script>
+  // Function to remove the text after a delay
+  function removeText() {
+    var welcomeText = document.getElementById('welcome');
+
+    // Remove welcome text after 2.3 seconds
+    setTimeout(function() {
+      welcomeText.style.display = 'none';
+    }, 2300);
+  }
+
+  // Function to redirect to index.html after 7 seconds
+  function redirectToIndex() {
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 7000); // 7 seconds delay
+  }
+
+  // Call functions when the page loads
+  window.onload = function() {
+    removeText();
+    redirectToIndex();
+  };
+</script>
+</body>
+</html>
