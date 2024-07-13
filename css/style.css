@@ -3901,6 +3901,8 @@ ol {
     align-items: center;
 }
 
+
+
 .product {
     background: #fff;
     border: 1px solid #eee;
@@ -3908,7 +3910,7 @@ ol {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 10px;
-    flex: 1 1 calc(25% - 20px); /* Flexbox for responsive columns */
+    flex: 1 1 calc(25% - 20px); 
     box-sizing: border-box;
 }
 
@@ -3919,7 +3921,6 @@ ol {
     
     height: auto;
 }
-
 
 .product-title, .price {
     margin: 5px 0;
